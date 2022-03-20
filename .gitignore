@@ -12,3 +12,4 @@ buildNumber.properties
 *.class
 *.classpath
 *.project
+/bin/
