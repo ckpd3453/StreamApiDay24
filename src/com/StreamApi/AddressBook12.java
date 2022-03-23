@@ -2,13 +2,13 @@ package com.StreamApi;
 
 import java.util.Scanner;
 
-public class AddressBook11 {
+public class AddressBook12 {
 		/**
 		 * create method choose() to select any of the option
 		 */
 		public void choose() {
-			MultipleAddressBookServices11 obj1 = new MultipleAddressBookServices11();
-			AddressBookServices11 obj2 = new AddressBookServices11();
+			MultipleAddressBookServices12 obj1 = new MultipleAddressBookServices12();
+			AddressBookServices12 obj2 = new AddressBookServices12();
 			while (true) {
 				System.out.println(
 						"Enter \n 1. To add The new AddressBook\n 2. To do AddressBook functions\n 3. To delete the AddressBook\n "
@@ -17,10 +17,10 @@ public class AddressBook11 {
 				int choice = scanner.nextInt();
 				switch (choice) {
 				case 1:
-					obj1.addAddressBookServices11();
+					obj1.addAddressBookServices12();
 					break;
 				case 2:
-					obj1.AddressBookServices11Functions();
+					obj1.AddressBookServices12Functions();
 					break;
 				case 3:
 					obj1.deleteBook();
@@ -49,9 +49,7 @@ public class AddressBook11 {
 		 * @param args - Default Java param (Not used)
 		 */
 		public static void main(String[] args) {
-			System.out.println("----------Phone Book-----------");
-			AddressBook11 addressBookMain = new AddressBook11();
+			AddressBook12 addressBookMain = new AddressBook12();
 			addressBookMain.choose();
 		}
-
 }

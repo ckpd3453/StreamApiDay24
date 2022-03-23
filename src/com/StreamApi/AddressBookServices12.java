@@ -7,15 +7,15 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class AddressBookServices11 {
+public class AddressBookServices12 {
 	/**
-	 * creating person object of ServerBook11 class
+	 * creating person object of ServerBook12 class
 	 */
-	ServerBook11 person = new ServerBook11();
+	ServerBook12 person = new ServerBook12();
 	/**
-	 * Creating a List of ServerBook11 using ArrayList
+	 * Creating a List of ServerBook12 using ArrayList
 	 */
-	List<ServerBook11> ServerBook11List = new ArrayList<>();
+	List<ServerBook12> contactDetailsList = new ArrayList<>();
 
 	/**
 	 * Declaring The Add Contact Method And Entering The Contact Details By Using
@@ -75,10 +75,10 @@ public class AddressBookServices11 {
 		System.out.println("Enter EmailId : ");
 		String emailId = scanner.next();
 		/**
-		 * storing or adding all the ServerBook11 to the person
+		 * storing or adding all the ServerBook12 to the person
 		 */
-		person = new ServerBook11(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
-		ServerBook11List.add(person);
+		person = new ServerBook12(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
+		ServerBook12List.add(person);
 	}
 
 	/**
@@ -89,20 +89,20 @@ public class AddressBookServices11 {
 	 */
 	public void searchByName(String name) {
 		/**
-		 * creating Stream from list of ServerBook11. Filter operation produces a new
+		 * creating Stream from list of ServerBook12. Filter operation produces a new
 		 * stream that contains elements of the original stream that pass a given
 		 * test(specified by a Predicate). filter(),is a Intermediate operations return
 		 * a new stream on which further processing can be done. here filter is used to
 		 * search particular name of a person and the filtered stream is creates a list
-		 * and will collect in a ServerBook11 using collector
+		 * and will collect in a ServerBook12 using collector
 		 */
-		List<ServerBook11> collect = ServerBook11List.stream().filter(p -> p.getFirstName().equalsIgnoreCase(name))
+		List<ServerBook12> collect = ServerBook12List.stream().filter(p -> p.getFirstName().equalsIgnoreCase(name))
 				.collect(Collectors.toList());
 		/**
 		 * ForEach() method is used and it is a Terminal operations mark the stream as
 		 * consumed, after which point it can no longer be used further.
 		 */
-		for (ServerBook11 contact : collect) {
+		for (ServerBook12 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -114,9 +114,9 @@ public class AddressBookServices11 {
 	 * @param name -passing City name
 	 */
 	public void searchByCity(String city) {
-		List<ServerBook11> collect = ServerBook11List.stream().filter(p -> p.getCity().equalsIgnoreCase(city))
+		List<ServerBook12> collect = ServerBook12List.stream().filter(p -> p.getCity().equalsIgnoreCase(city))
 				.collect(Collectors.toList());
-		for (ServerBook11 contact : collect) {
+		for (ServerBook12 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -128,9 +128,9 @@ public class AddressBookServices11 {
 	 * @param name -passing State name
 	 */
 	public void searchByState(String state) {
-		List<ServerBook11> collect = ServerBook11List.stream().filter(p -> p.getCity().equalsIgnoreCase(state))
+		List<ServerBook12> collect = ServerBook12List.stream().filter(p -> p.getCity().equalsIgnoreCase(state))
 				.collect(Collectors.toList());
-		for (ServerBook11 contact : collect) {
+		for (ServerBook12 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -143,8 +143,8 @@ public class AddressBookServices11 {
 	 */
 	public void countContactsByUsingCity(String cityName) {
 		long count = 0;
-		long count1 = ServerBook11List.stream().filter(g -> g.getCity().equalsIgnoreCase(cityName)).count();
-		for (ServerBook11 contact : ServerBook11List) {
+		long count1 = ServerBook12List.stream().filter(g -> g.getCity().equalsIgnoreCase(cityName)).count();
+		for (ServerBook12 contact : ServerBook12List) {
 			count1 = count1 + count;
 		}
 		System.out.println("Contact List :" + count1);
@@ -156,8 +156,17 @@ public class AddressBookServices11 {
 	 * Stream method
 	 */
 	public void sortByName() {
-		List<ServerBook11> list = ServerBook11List.stream().collect(Collectors.toList());
+		List<ServerBook12> list = ServerBook12List.stream().collect(Collectors.toList());
 		list.stream().sorted((g1, g2) -> ((String) g1.getFirstName()).compareTo(g2.getFirstName()))
+				.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
+	}
+
+	/**
+	 * Declaring Sort Method Sorting The Details Of Contact By City
+	 */
+	public void sortByCity() {
+		List<ServerBook12> list = ServerBook12List.stream().collect(Collectors.toList());
+		list.stream().sorted((g1, g2) -> ((String) g1.getCity()).compareTo(g2.getCity()))
 				.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
 	}
 
@@ -169,8 +178,8 @@ public class AddressBookServices11 {
 		System.out.println("Enter firstname of contact you want edit");
 		Scanner scanner = new Scanner(System.in);
 		String editName = scanner.next();
-		for (int i = 0; i < ServerBook11List.size(); i++) {
-			String name = ServerBook11List.get(i).getFirstName();
+		for (int i = 0; i < ServerBook12List.size(); i++) {
+			String name = ServerBook12List.get(i).getFirstName();
 			if (name.equalsIgnoreCase(editName)) {
 				System.out.println("Enter name is exit. you can edit the details");
 				while (true) {
@@ -179,7 +188,7 @@ public class AddressBookServices11 {
 					int choose = scanner.nextInt();
 					switch (choose) {
 					case 1:
-						ServerBook11List.remove(i);
+						ServerBook12List.remove(i);
 						writeContact();
 						break;
 					case 2:
@@ -192,37 +201,37 @@ public class AddressBookServices11 {
 							case 1:
 								System.out.println("Enter new First Name");
 								String newFirstName = scanner.next();
-								ServerBook11List.get(i).setFirstName(newFirstName);
+								ServerBook12List.get(i).setFirstName(newFirstName);
 								break;
 							case 2:
 								System.out.println("Enter new Last Name");
 								String newLastName = scanner.next();
-								ServerBook11List.get(i).setLastName(newLastName);
+								ServerBook12List.get(i).setLastName(newLastName);
 								break;
 							case 3:
 								System.out.println("Enter new City");
 								String newCity = scanner.next();
-								ServerBook11List.get(i).setCity(newCity);
+								ServerBook12List.get(i).setCity(newCity);
 								break;
 							case 4:
 								System.out.println("Enter new State");
 								String newState = scanner.next();
-								ServerBook11List.get(i).setState(newState);
+								ServerBook12List.get(i).setState(newState);
 								break;
 							case 5:
 								System.out.println("Enter new ZipCode");
 								int newZip = scanner.nextInt();
-								ServerBook11List.get(i).setZipNo(newZip);
+								ServerBook12List.get(i).setZipNo(newZip);
 								break;
 							case 6:
 								System.out.println("Enter new Phone Number");
 								int newPNumber = scanner.nextInt();
-								ServerBook11List.get(i).setPhoneNo(newPNumber);
+								ServerBook12List.get(i).setPhoneNo(newPNumber);
 								break;
 							case 7:
 								System.out.println("Enter new Email");
 								String newEmail = scanner.next();
-								ServerBook11List.get(i).setEmail(newEmail);
+								ServerBook12List.get(i).setEmail(newEmail);
 								break;
 							case 8:
 								return;
@@ -250,9 +259,9 @@ public class AddressBookServices11 {
 		System.out.println("Enter the first name of contact you want to delete");
 		Scanner scanner = new Scanner(System.in);
 		String deleteName = scanner.next();
-		for (int i = 0; i < ServerBook11List.size(); i++) {
-			if (deleteName.equalsIgnoreCase(ServerBook11List.get(i).getFirstName())) {
-				ServerBook11List.remove(i);
+		for (int i = 0; i < ServerBook12List.size(); i++) {
+			if (deleteName.equalsIgnoreCase(ServerBook12List.get(i).getFirstName())) {
+				ServerBook12List.remove(i);
 				System.out.println("contact delete successfully");
 			} else {
 				System.out.println("enter name dose not exit");
