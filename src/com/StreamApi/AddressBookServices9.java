@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class AddressBookServices {
-	ServerBook8 person = new ServerBook8();
-	List<ServerBook8> contactDetailsList = new ArrayList<>();
+public class AddressBookServices9 {
+	ServerBook9 person = new ServerBook9();
+	List<ServerBook9> contactDetailsList = new ArrayList<>();
 
 	/**
 	 * Declaring The Add Contact Method And Entering The Contact Details By Using
@@ -55,7 +55,7 @@ public class AddressBookServices {
 		long mobileNumber = scanner.nextLong();
 		System.out.println("Enter EmailId : ");
 		String emailId = scanner.next();
-		person = new ServerBook8(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
+		person = new ServerBook9(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
 		contactDetailsList.add(person);
 	}
 
@@ -66,9 +66,9 @@ public class AddressBookServices {
 	 * @param name -passing name
 	 */
 	public void searchByName(String name) {
-		List<ServerBook8> collect = contactDetailsList.stream().filter(p -> p.getFirstName().equalsIgnoreCase(name))
+		List<ServerBook9> collect = contactDetailsList.stream().filter(p -> p.getFirstName().equalsIgnoreCase(name))
 				.collect(Collectors.toList());
-		for (ServerBook8 contact : collect) {
+		for (ServerBook9 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -80,9 +80,9 @@ public class AddressBookServices {
 	 * @param name -passing City name
 	 */
 	public void searchByCity(String city) {
-		List<ServerBook8> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(city))
+		List<ServerBook9> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(city))
 				.collect(Collectors.toList());
-		for (ServerBook8 contact : collect) {
+		for (ServerBook9 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -94,9 +94,9 @@ public class AddressBookServices {
 	 * @param name -passing State name
 	 */
 	public void searchByState(String state) {
-		List<ServerBook8> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(state))
+		List<ServerBook9> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(state))
 				.collect(Collectors.toList());
-		for (ServerBook8 contact : collect) {
+		for (ServerBook9 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
