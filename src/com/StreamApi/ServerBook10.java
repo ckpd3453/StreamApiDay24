@@ -1,8 +1,8 @@
 package com.StreamApi;
 
-public class ServerBook9 {
+public class ServerBook10 {
 	
-	public ServerBook9() {
+	public ServerBook10() {
 		super();
 	}
 
@@ -18,7 +18,7 @@ public class ServerBook9 {
 	
 	
 	
-	public ServerBook9(String firstName, String lastName, String address, String city, String state, int zipNo,
+	public ServerBook10(String firstName, String lastName, String address, String city, String state, int zipNo,
 			long phoneNo, String email) {
 		super();
 		this.firstName = firstName;
